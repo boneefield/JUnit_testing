@@ -30,7 +30,7 @@ public class Root {
     }
 
     private double[] roots() {
-        System.out.println("Ваше уравнение:\n" + a + "x^2 + " + b + "x + " + c);
+        System.out.println("Р’Р°С€Рµ СѓСЂР°РІРЅРµРЅРёРµ:\n" + a + "x^2 + " + b + "x + " + c);
         System.out.println(discriminant());
         double d = discriminant();
         double x1 = (-b + Math.sqrt(d))/2*a;
