@@ -35,7 +35,6 @@ public class Root {
         double d = discriminant();
         double x1 = (-b + Math.sqrt(d))/2*a;
         double x2 = (-b - Math.sqrt(d))/2*a;
-        double[] answer = {x1,x2};
-        return answer;
+        return new double[]{x1,x2};
     }
 }
