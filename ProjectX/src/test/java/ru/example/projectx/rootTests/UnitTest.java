@@ -38,7 +38,7 @@ public class UnitTest {
         Assert.assertTrue("X != 2",roots[0] == -2);
     }
 
-    //СЋРЅРёС‚-С‚РµСЃС‚С‹.
+    //юнит-тесты.
     @Test
     public void case04(){
         System.out.println("Test 4");
@@ -48,7 +48,7 @@ public class UnitTest {
         Assert.assertTrue(Arrays.equals(roots, rroots));
     }
 
-    //СЃР»СѓС‡Р°Р№, РєРѕРіРґР° РєРѕСЂРЅРµР№ РЅРµС‚
+    //случай, когда корней нет
     @Test
     public void case05(){
         System.out.println("Test 5");
@@ -62,7 +62,7 @@ public class UnitTest {
             System.out.println("The equation has roots");
         }
     }
-    //РєРѕРіРґР° D = 0. + РїСЂРѕРІРµСЂРєР° РЅР° Р·РЅР°Рє РєРѕСЂРЅСЏ.
+    //когда D = 0. + проверка на знак корня.
     @Test
     public void case06(){
         System.out.println("Test 6");
@@ -85,28 +85,58 @@ public class UnitTest {
             }
         }
     }
-    //RРѕРіРґР° 1 РёР· РєРѕСЂРЅРµР№ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Р№
+    //Rогда 1 из корней отрицательный
     @Test
     public void case07() {
         System.out.println("Test 7");
         root.setA(2).setB(6).setC(-6);
+        double[] roots = root.getX();
+        Assert.assertTrue("X1 = NaN", Double.isNaN(roots[0]));
+        for (int i = 0; i < 2; i++) {
+            if (roots[i] < 0) {
+                System.out.println((i + 1) + " root is negative,  " + "x" + (i + 1) + " = " + roots[i]);
+            }
+        }
+        for (int i = 0; i < 2; i++){
+            if(Double.isNaN(roots[i])){
+                System.out.println("x" + (i + 1) + " = NaN");
+            }else {
+                System.out.println("The root " + (i + 1) + " not NaN");
+            }
+        }
+    }
+
+    //2 отрицатлеьных корня
+    @Test
+    public void case08() {
+        System.out.println("Test 8");
+        root.setA(-6).setB(-5).setC(-1);
         double[] roots = root.getX();
         for (int i = 0; i < 2; i++) {
             if (roots[i] < 0) {
                 System.out.println((i + 1) + " root is negative,  " + "x" + (i + 1) + " = " + roots[i]);
             }
         }
+        for (int i = 0; i < 2; i++){
+            if(Double.isNaN(roots[i])){
+                System.out.println("x" + (i + 1) + " = NaN");
+            }else {
+                System.out.println("The root " + (i + 1) + " not NaN");
+            }
+        }
     }
 
-    //2 РѕС‚СЂРёС†Р°С‚Р»РµСЊРЅС‹С… РєРѕСЂРЅСЏ
+    //Проверка корней на NaN
     @Test
-    public void case08() {
-        System.out.println("Test 7");
+    public void case09() {
+        System.out.println("Test 9");
         root.setA(-6).setB(-5).setC(-1);
         double[] roots = root.getX();
-        for (int i = 0; i < 2; i++) {
-            if (roots[i] < 0) {
-                System.out.println((i + 1) + " root is negative,  " + "x" + (i + 1) + " = " + roots[i]);
+        for (int i = 0; i < 2; i++){
+            if(Double.isNaN(roots[i])){
+                System.out.println("x" + (i + 1) + " = NaN");
+            }else {
+                System.out.println("The root " + (i + 1) + " not NaN");
             }
         }
     }
